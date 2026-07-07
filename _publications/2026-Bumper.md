@@ -1,0 +1,17 @@
+---
+title: "Bumper: Hinting Instruction Usefulness for Robust Unified Caches"
+collection: publications
+category: manuscript
+permalink: /publication/2026-Bumper
+excerpt: 'Retirement based hints for code caching in the L2'
+date: 2026
+venue: 'ISCA 2026'
+paperurl: 'https://ease-lab.github.io/ease_website/pubs/BUMPER_ISCA2026.pdf'
+citation: ''
+---
+
+<a href='https://ease-lab.github.io/ease_website/pubs/BUMPER_ISCA2026.pdf'>Download paper here</a>
+
+Retirement based hints for code caching in the L2
+
+Recommended citation: 
