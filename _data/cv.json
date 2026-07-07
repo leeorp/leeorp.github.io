@@ -1,14 +1,14 @@
 {
   "basics": {
-    "name": "Your Sidebar Name",
-    "email": "none@example.org",
+    "name": "Leeor Peled",
+    "email": "leeorp+githubio@google.com",
     "phone": "",
-    "website": "https://academicpages.github.io",
-    "summary": "Currently employed at Red Brick University. Short biography for the left-hand sidebar",
+    "website": "https://leeorp.github.io",
+    "summary": "Head of Skyline CPU Research. Currently employed at Huawei",
     "location": {
       "address": "",
       "postalCode": "",
-      "city": "Earth",
+      "city": "Israel",
       "countryCode": "US",
       "region": ""
     },
@@ -16,21 +16,60 @@
       {
         "network": "Google Scholar",
         "username": "",
-        "url": "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+        "url": "https://scholar.google.com/citations?user=l2Nk5QcAAAAJ&hl=iw"
       },
       {
         "network": "ORCID",
         "username": "",
-        "url": "https://orcid.org/yourorcidurl"
+        "url": "https://orcid.org/0000-0003-4853-061X"
       },
       {
         "network": "GitHub",
-        "username": "academicpages",
-        "url": "https://github.com/academicpages"
+        "username": "leeorp",
+        "url": "https://github.com/leeorp"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "leeor-peled-125365b4",
+        "url": "https://il.linkedin.com/in/leeor-peled-125365b4"
       }
     ]
   },
-  "work": [],
+  "work": [
+    {
+      "company": "GitHub University",
+      "position": "Academic Pages Collaborator",
+      "website": "",
+      "startDate": "2024",
+      "endDate": "present",
+      "summary": "",
+      "highlights": [
+        "Updates and improvements to template"
+      ]
+    },
+    {
+      "company": "GitHub University",
+      "position": "Research Assistant",
+      "website": "",
+      "startDate": "2015",
+      "endDate": "2015",
+      "summary": "",
+      "highlights": [
+        "Merging pull requests"
+      ]
+    },
+    {
+      "company": "GitHub University",
+      "position": "Research Assistant",
+      "website": "",
+      "startDate": "2015",
+      "endDate": "2015",
+      "summary": "",
+      "highlights": [
+        "Tagging issues"
+      ]
+    }
+  ],
   "education": [
     {
       "institution": "GitHub University",
@@ -60,7 +99,31 @@
       "courses": []
     }
   ],
-  "skills": [],
+  "skills": [
+    {
+      "name": "Skill 1",
+      "level": "",
+      "keywords": [
+        "Skill 1"
+      ]
+    },
+    {
+      "name": "Skill 2",
+      "level": "",
+      "keywords": [
+        "Sub-skill 2.1",
+        "Sub-skill 2.2",
+        "Sub-skill 2.3"
+      ]
+    },
+    {
+      "name": "Skill 3",
+      "level": "",
+      "keywords": [
+        "Skill 3"
+      ]
+    }
+  ],
   "languages": [],
   "interests": [],
   "references": [],
