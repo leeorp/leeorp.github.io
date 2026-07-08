@@ -10,7 +10,7 @@
 locale                   : "en-US"
 site_theme               : "air" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
 title                    : "Dr. Leeor Peled"
-title_separator          : "-"
+title_separator          : "-----"
 name                     : &name "Leeor Peled"
 description              : &description "a website of sorts"   # Update this with a general description of your site, this is the default if not overridden by a page
 url                      : https://leeorp.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
@@ -26,7 +26,7 @@ author:
   avatar           : "me17.jpg"
   name             : "Leeor Peled"
   pronouns         : # example: "she/her"  
-  bio              : "Head of Skyline CPU Research"
+  bio              : "CPU Architect and head of CPU Architecture research at Huawei."
   location         : "Israel"
   employer         : "Huawei"
   uri              : # URL
