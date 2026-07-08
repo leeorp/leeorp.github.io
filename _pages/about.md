@@ -12,6 +12,7 @@ He then moved to Huawei as a senior architect and research manager working on CP
 Currently he is leading Huawei CPU Architecture Research with a team that spans across Israel, Zurich, Cambridge, Edinburgh, and China. His main focus is on Predictors, Parallelism, Caches, Software/Hardware codesign, System/OS, and dynamic optimization, but he may be willing to talk about other things if you're not careful. He also serves as an associate editor of IEEE Computer Architecture Letters (CAL) and PC memeber on recent ISCA, Micro and HPCA conferences.
 Fun fact: likes windsurfing :)
 
+---------
 
 Areas of Interest
 =======
@@ -27,27 +28,31 @@ Areas of Interest
 - Transactional Memory
 
 
-======
+------
 
 Employment
-------
-- 2005 - 2020: Performance Architect at Intel, focusing on CPU microarchitecture design and optimization</li>
-  ![Intel logo](images/image006.jpg) 
-  ![Intel logo](images/image-20-600x338.png[1].webp)
+=====
+- 2005 - 2020: Performance Architect at Intel, focusing on CPU microarchitecture design and optimization
+  ![Intel logo](images/image006.jpg)
+  
+  ![Intel logo2](images/image-20-600x338.png[1].webp)
 
 - 2020 - 2023: Senior Architect at Huawei (Toga Networks - Israel research center), head of Advanced Technologies Group (ATG)
 - 2023 - 2026: Head of CPU Architecture Research at Huawei (Skyline CPU)
   ![Huawei logo](images/Huawei-Logo-500x281.png)
 
+-----
 
 Invited talks
-------------
+=====
 - Recent directions in CPU Architecture, talk at Bar-Ilan university [Link]
 - DPC4 [Talk](https://sites.google.com/view/dpc4-2026/program/invited-talks), [Full recording](https://www.youtube.com/watch?v=kGof6AnzICs)
 - Future of CPU research in the agentic AI, Tech talks [Link]
-    
+
+-----
+
 Service
--------
+======
 - Conferences:
     - [CATC - Compilers, Architecture and Tools Conference](https://software.intel.com/en-us/event/compilerconf/2015/sessions) (Co-organizer and Program Committee
     - [Micro 56](http://www.microarch.org/micro56/) - 56th IEEE/ACM International Symposium on Microarchitecture 2023 (Toronto) - Program committee
