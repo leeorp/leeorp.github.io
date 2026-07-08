@@ -45,6 +45,13 @@ Employment
 
 -----
 
+Publications (see extended version through tabs)
+========
+{% assign pubs = site.data.publications | sort: 'date' | reverse %}
+{% for p in pubs %}
+- {% if p.date %}{{ p.date | date: "%Y" }}{% else %}n.d.{% endif %} — {% if p.venue %}{{ p.venue }}{% else %}Unknown venue{% endif %} — {% if p.url %}[{{ p.title }}]({{ p.url }}){% else %}{{ p.title }}{% endif %}
+{% endfor %}
+
 Invited talks
 =====
 - Recent directions in CPU Architecture, talk at Bar-Ilan university [Link]
