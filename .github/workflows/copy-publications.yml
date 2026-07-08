@@ -1,0 +1,42 @@
+name: Copy publications CSV to _data
+
+on:
+  push:
+    paths:
+      - 'markdown_generator/publications.csv'
+  workflow_dispatch: {}
+
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Ensure _data directory exists and copy CSV
+        run: |
+          set -e
+          mkdir -p _data
+          if [ -f "markdown_generator/publications.csv" ]; then
+            cp markdown_generator/publications.csv _data/publications.csv
+          else
+            echo "markdown_generator/publications.csv not found, nothing to copy"
+          fi
+
+      - name: Commit and push changes if any
+        run: |
+          # Configure git
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Check for changes
+          if git status --porcelain | grep -q '.'; then
+            git add _data/publications.csv
+            git commit -m "Copy publications.csv into _data for Jekyll"
+            git push
+          else
+            echo "No changes to commit"
+          fi
