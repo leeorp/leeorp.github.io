@@ -33,6 +33,7 @@ Employment
 ------
 - 2005 - 2020: Performance Architect at Intel, focusing on CPU microarchitecture design and optimization</li>
   ![Intel logo](images/image006.jpg) 
+  ![Intel logo](images/image-20-600x338.png[1].webp)
 
 - 2020 - 2023: Senior Architect at Huawei (Toga Networks - Israel research center), head of Advanced Technologies Group (ATG)
 - 2023 - 2026: Head of CPU Architecture Research at Huawei (Skyline CPU)
