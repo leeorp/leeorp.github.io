@@ -9,12 +9,14 @@ on:
 jobs:
   copy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          persist-credentials: true
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Ensure _data directory exists and copy CSV
         run: |
@@ -28,11 +30,9 @@ jobs:
 
       - name: Commit and push changes if any
         run: |
-          # Configure git
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Check for changes
           if git status --porcelain | grep -q '.'; then
             git add _data/publications.csv
             git commit -m "Copy publications.csv into _data for Jekyll"
