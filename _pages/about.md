@@ -47,7 +47,7 @@ Employment
 
 Publications (see extended version through tabs)
 ========
-{% assign pubs = site.data.publications | sort: 'date' | reverse %}
+{% assign pubs = site.data.publications | sort: 'date'  %}
 {% for p in pubs %}
 - {% if p.pub_date %}{{ p.pub_date | pub_date: "%Y" }}{% else %}n.d.{% endif %} — {% if p.venue %}{{ p.venue }}{% else %}Unknown venue{% endif %} — {% if p.url %}[{{ p.title }}]({{ p.url }}){% else %}{{ p.title }}{% endif %}
 {% endfor %}
