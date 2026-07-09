@@ -8,9 +8,9 @@ redirect_from:
 ---
 
 Leeor Peled has over 20 years of experience developing CPU core architectures, starting at Intel working on various cores from Sandybridge, Ivybridge & Skylake, until Goldencove and Lioncove.
-He then moved to Huawei as a senior architect and research manager working on CPU cores for Mobile phones, server CPUs and many other domains. Leeor received his PhD at the Technion under Prof. [Uri Weiser](http://webee.technion.ac.il/people/weiser) & Prof. [Yoav Etsion](http://www.cs.technion.ac.il/~yetsion/).
+He then moved to Huawei as a senior architect and research manager working on CPU cores for Mobile phones, server CPUs and many other domains. Leeor received his PhD at the Technion under Prof. U[...]
 
-Currently he is leading Huawei CPU Architecture Research with a team that spans across Israel, Zurich, Cambridge, Edinburgh, and China. His main focus is on Predictors, Parallelism, Caches, Software/Hardware codesign, System/OS, and dynamic optimization, but he may be willing to talk about other things if you're not careful. He also serves as an associate editor of IEEE Computer Architecture Letters (CAL) and PC memeber on recent ISCA, Micro and HPCA conferences.
+Currently he is leading Huawei CPU Architecture Research with a team that spans across Israel, Zurich, Cambridge, Edinburgh, and China. His main focus is on Predictors, Parallelism, Caches, Softwa[...]
 
 Fun fact: likes windsurfing :)
 
@@ -35,7 +35,7 @@ Publications (see extended version through tabs)
 ========
 {% assign pubs = site.data.publications | sort: 'date'  %}
 {% for p in pubs %}
-- {% if p.pub_date %}{{ p.pub_date | pub_date: "%Y" }}{% else %}n.d.{% endif %} — {% if p.venue %}{{ p.venue }}{% else %}Unknown venue{% endif %} — {% if p.url %}[{{ p.title }}]({{ p.url }}){% else %}{{ p.title }}{% endif %}
+- {% if p.pub_date %}{{ p.pub_date | pub_date: "%Y" }}{% else %}n.d.{% endif %} — {% if p.venue %}<span class="venue-badge" data-venue="{{ p.venue | slugify }}">{{ p.venue }}</span>{% else %}<span class="venue-badge" data-venue="unknown">Unknown venue</span>{% endif %} — {% if p.url %}[{{ p.title }}]({{ p.url }}){%[...]
 {% endfor %}
 
 ----
@@ -43,13 +43,13 @@ Publications (see extended version through tabs)
 Employment
 =====
 - 2005 - 2020: Performance Architect at Intel, focusing on CPU microarchitecture design and optimization
-  
-  ![Intel logo2](images/image-20-600x338.png[1].webp)
+   
+   ![Intel logo2](images/image-20-600x338.png[1].webp)
 
 - 2020 - 2023: Senior Architect at Huawei (Toga Networks - Israel research center), head of Advanced Technologies Group (ATG)
 - 2023 - 2026: Head of CPU Architecture Research at Huawei (Skyline CPU)
-  
-  ![Huawei logo](images/Huawei-Logo-500x281.png)
+   
+   ![Huawei logo](images/Huawei-Logo-500x281.png)
 
 -----
 
