@@ -34,6 +34,11 @@ $navicon-height             : 4px;
 $sidebar-link-max-width     : 250px;
 $sidebar-screen-min-width   : 1024px;
 
+body[data-theme="default_light"] {
+  --site-bg: url('/images/cpu1.bmp');
+  --site-bg-filter: contrast(30%) brightness(0.33);
+}
+
 /* Dark theme for the site */
 html[data-theme="dark"] {
     --global-base-color                 : #{$primary-color};
