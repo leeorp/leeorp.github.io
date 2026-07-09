@@ -11,11 +11,14 @@ layout: compress
     {% include head/custom.html %}
   </head>
 
+<!-- add this near the top of the <body> in your layout -->
+<div class="bg-image" aria-hidden="true"></div>
+
   <body>
 
     {% include browser-upgrade.html %}
     {% include masthead.html %}
-
+    
     {{ content }}
 
     <div class="page__footer">
