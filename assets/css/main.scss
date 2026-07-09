@@ -42,8 +42,8 @@
 .bg-image {
   position: fixed;
   inset: 0;
-  background: url('/images/cpu5.jpg') center/cover no-repeat fixed;
-  filter: contrast(65%) brightness(0.6); /* optional tweaks */
+  background: url('/images/cpu1.bmp') center/cover no-repeat fixed;
+  filter: contrast(25%) brightness(0.2); /* optional tweaks */
   z-index: 0;
   pointer-events: none;
 }
