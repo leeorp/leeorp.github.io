@@ -8,9 +8,10 @@ redirect_from:
 ---
 
 Leeor Peled has over 20 years of experience developing CPU core architectures, starting at Intel working on various cores from Sandybridge, Ivybridge & Skylake, until Goldencove and Lioncove.
-He then moved to Huawei as a senior architect and research manager working on CPU cores for Mobile phones, server CPUs and many other domains. Leeor received his PhD at the Technion under Prof. U[...]
+He then moved to Huawei as a senior architect and research manager working on CPU cores for Mobile phones, server CPUs and many other domains. Leeor received his PhD at the Technion under Prof. [Uri Weiser](http://webee.technion.ac.il/people/weiser) & Prof. [Yoav Etsion](http://www.cs.technion.ac.il/~yetsion/).
 
-Currently he is leading Huawei CPU Architecture Research with a team that spans across Israel, Zurich, Cambridge, Edinburgh, and China. His main focus is on Predictors, Parallelism, Caches, Softwa[...]
+Currently he is leading Huawei CPU Architecture Research with a team that spans across Israel, Zurich, Cambridge, Edinburgh, and China. His main focus is on Predictors, Parallelism, Caches, Software/Hardware codesign, System/OS, and dynamic optimization, but he may be willing to talk about other things if you're not careful. He also serves as an associate editor of IEEE Computer Architecture Letters (CAL) and PC memeber on recent ISCA, Micro and HPCA conferences.
+Curre
 
 Fun fact: likes windsurfing :)
 
@@ -20,22 +21,29 @@ Areas of Interest
 =======
 - CPU Architecture and Microarchitecture (uArch)
 - Predictors, prefetchers and adaptive configurability
-- Automated parallelism
+- Automated parallelism, code decomposition, speculative multithreading
 - Code semantics inference and extrpolation
 - Hardware-Software Codesign
 - Memory Hierarchy: Prefetching and Cache Design, replacement policies
 - Machine Learning for CPU optimization
 - Performance evaluation, modeling and reliable benchmarking
 - Binary translation and optimization (BT/DBO)
-- Transactional Memory
+- Memory order models, transactional Memory 
 
 ------
 
 Publications (see extended version through tabs)
 ========
-{% assign pubs = site.data.publications | sort: 'date'  %}
+{% assign pubs = site.data.publications | sort: 'date' %}
 {% for p in pubs %}
-- {% if p.pub_date %}{{ p.pub_date | pub_date: "%Y" }}{% else %}n.d.{% endif %} — {% if p.venue %}<span class="venue-badge" data-venue="{{ p.venue | slugify }}">{{ p.venue }}</span>{% else %}<span class="venue-badge" data-venue="unknown">Unknown venue</span>{% endif %} — {% if p.url %}[{{ p.title }}]({{ p.url }}){%[...]
+- {% if p.pub_date %}
+  {{ p.pub_date | pub_date: "%Y" }}
+  {% else %}
+  n.d.
+  {% endif %} — 
+  {% if p.venue %}
+  <span class="venue-badge" data-venue="{{ p.venue | slugify }}">{{ p.venue }}</span>
+  {% endif %}{% if p.title %} {{ p.title }}{% endif %}
 {% endfor %}
 
 ----
