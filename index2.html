@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leeor Peled - CPU Architect & Researcher</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Calibri, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+header {
+    display: flex;
+    align-items: center;       /* center children vertically so they don't stretch the header */
+    min-height: 250px;         /* ribbon height */
+    padding: 0;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+}
+
+
+ 
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem;             /* top + bottom padding taken into account for image sizing */
+}
+
+.logo {
+    width: 80px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.header-text {
+    flex: 1;
+    text-align: left;          /* keeps text next to the logo */
+}
+
+
+
+	.header-image,
+	.image {
+	    /*height: auto;              *//* don't force full container height */
+    	    max-height: calc(200% - 1rem); /* ribbon height minus header-content vertical padding (2rem top + 2rem bottom) */
+	    width: auto;              /* preserve aspect ratio */
+	    max-width: 40%;           /* prevents it from pushing the text horizontally (adjust as desired) */
+	    object-fit: contain;
+	    margin-left: auto;
+	    align-self: center;       /* vertically center within the flex row */
+	    flex-shrink: 0;
+	}
+
+        .image {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+
+        .image {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+        .logo {
+            width: 80px;
+            height: auto;
+        }
+
+        .header-text {
+            flex: 1;
+        }
+
+        .header-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .profile-section {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .profile-image {
+            width: 150px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .profile-info h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1e3c72;
+        }
+
+        .profile-info p {
+            margin-bottom: 0.8rem;
+            line-height: 1.8;
+        }
+
+        .profile-info a {
+            color: #2a5298;
+            text-decoration: none;
+        }
+
+        .profile-info a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #2a5298;
+            padding-bottom: 0.5rem;
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .section li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #2a5298;
+            font-weight: bold;
+        }
+
+        .publication {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .publication:last-child {
+            border-bottom: none;
+        }
+
+        .publication-year {
+            font-weight: bold;
+            color: #2a5298;
+            display: inline-block;
+            min-width: 60px;
+        }
+
+        .publication-title {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .publication-title:hover {
+            text-decoration: underline;
+        }
+
+        .publication-venue {
+            font-style: italic;
+            color: #666;
+            margin-left: 0.5rem;
+        }
+
+        .publication-status {
+            font-size: 0.9em;
+            color: #999;
+            margin-left: 0.5rem;
+        }
+
+        .authors {
+            font-size: 0.95em;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                min-height: auto;
+            }
+
+            .header-content {
+                flex-direction: column;
+                padding: 2rem;
+            }
+
+	    .header-image,
+	    .image {
+	        max-height: 120px;    /* smaller on mobile */
+	        max-width: 60%;
+	    }
+
+            .image {
+                margin-left: 0;
+                max-height: 150px;
+            }
+
+
+            .profile-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            main {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <img src="images/image001.png" alt="Technion Logo" class="logo">
+            <div class="header-text">
+                <h1>Technion</h1>
+                <p>Electrical Engineering</p>
+	    </div>
+        </div>
+            <div class="header-image">
+	        <img src="images/image004b.jpg" alt="Header Image" class="image">
+	    </div>
+    </header>
+
+    <main>
+        <!-- Profile Section -->
+        <section class="profile-section">
+            <img src="images/me17.jpg" alt="Leeor Peled Profile Photo" class="profile-image">
+            <div class="profile-info">
+                <h2>Dr. Leeor Peled</h2>
+                <p>CPU Architect and head of CPU Architecture research at Huawei.</p>
+                <p>Leeor Peled has over 20 years of experience developing CPU core architectures, starting at Intel working on various cores from Sandybridge, Ivybridge & Skylake, until Goldencove and Lioncove.<br>
+                    He then moved to Huawei as a senior architect and research manager working on CPU cores for Mobile phones, server CPUs and many other domains. 
+                    Leeor received his PhD at the Technion under Prof. <a href="http://webee.technion.ac.il/people/weiser/">Uri Weiser</a> & Prof. <a href="http://www.cs.technion.ac.il/~yetsion/">Yoav Etsion</a>.<br>
+                    Currently he is leading Huawei CPU Architecture Research with a team that spans across Israel, Zurich, Cambridge, Edinburgh, and China. 
+                    His main focus is on Predictors, Parallelism, Caches, Software/Hardware codesign, System/OS, and dynamic optimization, but he may be willing to talk about other things if you're not careful.
+                    He also serves as an associate editor of IEEE Computer Architecture Letters (CAL) and PC memeber on recent ISCA, Micro and HPCA conferences.</p>
+                
+                <p><strong>Email:</strong> <a href="mailto:leeorp+githubio@gmail.com">leeorp (at) gmail.com</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://il.linkedin.com/in/leeor-peled-125365b4">Leeor-Peled</a></p>
+                <p><strong>Google Scholar:</strong> <a href="https://scholar.google.com/citations?user=l2Nk5QcAAAAJ&hl=iw">Profile</a></p>
+                <div class="social-links">
+                    <a href="http://stackoverflow.com/users/2016408/leeor">
+                        <img src="http://stackoverflow.com/users/flair/2016408.png?theme=dark" 
+                             width="208" height="58" 
+                             alt="Leeor's Stack Overflow Profile">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Areas of Interest -->
+        <section class="section">
+            <h3>Areas of Interest</h3>
+            <ul>
+                <li>CPU Architecture and Microarchitecture (uArch)</li>
+                <li>Predictors, prefetchers and adaptive configurability</li>
+                <li>Automated parallelism</li>
+                <li>Code semantics inference and extrpolation</li>
+                <li>Hardware-Software Codesign</li>
+                <li>Memory Hierarchy: Prefetching and Cache Design, replacement policies</li>
+                <li>Machine Learning for CPU optimization</li>
+                <li>Performance evaluation, modeling and reliable benchmarking</li>
+                <li>Binary translation and optimization (BT/DBO)</li>
+                <li>Transactional Memory</li>
+            </ul>
+        </section>
+
+        <!-- Patents -->
+        <section class="section">
+            <h3>Patents</h3>
+
+            <div class="publication">
+                <span class="publication-year">2025</span>
+                <a href="https://patents.google.com/patent/EP4668122A1" class="publication-title">Method and corresponding apparatus for filtering prefetch requests</span>
+                <span class="publication-status">Patent EP4668122A1<br>Georgios Vavoliotis, Boris Grot, Leeor Peled</span>
+            </div>
+            <div class="publication">
+                <span class="publication-year">2025</span>
+                <a href="https://patents.google.com/patent/WO2025050307A1" class="publication-title">Efficient load value prediction based on program context and misprediction control mechanism for pipelined microprocessor designs</span>
+                <span class="publication-status">Patent WO2025050307A1,<br>Kleovoulos Kalaitzidisk, Constantin Berestizshevsky, Leeor Peled, Elki Waserman, Lixia Yang</span>
+            </div>
+            <div class="publication">
+                <span class="publication-year">2024</span>
+                <a href="https://patents.google.com/patent/WO2024217677A1" class="publication-title">Crash-consistent persistent memory devices and methods</span>
+                <span class="publication-status">Patent WO2024217677A1,<br>Hillel Avni, Leeor Peled, Raanan Sade, Idan Levy</span>
+            </div>
+            <div class="publication">
+                <span class="publication-year">2024</span>
+                <a href="https://patents.google.com/patent/US11922220B2" class="publication-title">Function as a service (FaaS) system enhancements</span>
+                <span class="publication-status">US Patent 11,922,220<br>with Andrew Herdrich et al.</span>
+            </div>
+            <div class="publication">
+                <span class="publication-year">2024</span>
+                <a href="https://patents.google.com/patent/EP3716065B1" class="publication-title">Apparatus, method, and system for ensuring quality of service for multi-threading processor cores</span>
+                <span class="publication-status">US Patent EP3716065A1, granted 2024<br>Andrew HerdrichIan Steiner, Leeor Peled, Michael Prinke ,Eylon Toledano</span>
+            </div>
+            <div class="publication">
+                <span class="publication-year">2023</span>
+                <a href="https://patents.google.com/patent/US11720364B2" class="publication-title">Methods and apparatus to dynamically enable and/or disable prefetchers</span>
+                <span class="publication-status">US Patent 11720364B2, granted 2023</span>
+            </div>
+            <div class="publication">
+                <span class="publication-year">2022</span>
+                <a href="https://patents.google.com/patent/WO2022100845A1" class="publication-title">Method and computing arrangement for loading data into data cache from data memory</span>
+                <span class="publication-status">WO2022100845A1, granted 2022<br>Shuki Zanyovka, Moshe Genish, Leeor Peled</span>
+            </div>
+
+            <div class="publication">
+                <span class="publication-year">2022</span>
+                <a href="https://patents.google.com/patent/WO2022171309A1/en?oq=PCT%2fEP2021%2f053637" class="publication-title">An apparatus and method for performing enhanced pointer chasing prefetcher</span>
+                <span class="publication-status">WO2022171309A1, granted 2022<br> Leeor Peled, Nikolay Chernuha, Lyu Nan</span>
+            </div>
+            <div class="publication">
+                <span class="publication-year">2016</span>
+                <a href="https://patents.google.com/patent/US20180173534A1" class="publication-title">Branch Predictor with Branch Resolution Code Injection</span>
+                <span class="publication-status">US patent US20180173534A1, granted 2018<br>Leeor Peled, Gadi Haber, Yiannakis Sazeides</span>
+            </div>
+            <div class="publication">
+                <span class="publication-year">2016</span>
+                <a href="https://patents.google.com/patent/US10157136B2" class="publication-title">Pipelined Prefetcher for Parallel Advancement of Multiple Data Streams</span>
+                <span class="publication-status">US patent 10157136B2, granted 2016<br>Leeor Peled, Joseph Nuzman, Larisa Novakovsky</span>
+            </div>
+            <div class="publication">
+                <span class="publication-year">2011</span>
+                <a href="http://www.google.com.ar/patents/US20110167416" class="publication-title">Systems, apparatuses, and methods for a hardware and software system to automatically decompose a program to multiple parallel threads</a>
+                <span class="publication-status">US Patent 20110167416 A1</span>
+            </div>
+        </section>
+
+        
+        <!-- Publications & Papers -->
+        <section class="section">
+            <h3>Publications & Papers</h3>
+ 
+            <div class="publication">
+                <span class="publication-year">2026</span>
+                <a href="https://ease-lab.github.io/ease_website/pubs/BUMPER_ISCA26.pdf" class="publication-title">Bumper: Hinting Instruction Usefulness for Robust Unified Caches</span>
+                <span class="publication-venue">ISCA 2026</span>
+            </div>
+
+            <div class="publication">
+                <span class="publication-year">2026</span>
+                <a href="https://ieeexplore.ieee.org/abstract/document/11408522" class="publication-title">Tempranillo: Non-Speculative Early Register Release</span>
+                <span class="publication-venue">HPCA 2026</span>
+            </div>
+
+            <div class="publication">
+                <span class="publication-year">2025</span>
+                <a href="https://ieeexplore.ieee.org/abstract/document/10946723/" class="publication-title">To Cross, or Not to Cross Pages for Prefetching?</span>
+                <span class="publication-venue">HPCA 2025</span>
+            </div>
+
+            <div class="publication">
+                <span class="publication-year">2022</span>
+                <a href="https://arxiv.org/abs/2207.14033" class="publication-title">Identifying and Exploiting Sparse Branch Correlations for Optimizing Branch Prediction</span>
+                <span class="publication-venue">arXiv</span>
+                <div class="authors">with Anastasios Zouzias and Kleovoulos Kalaitzidis and Konstantin Berestizshevsky and Renzo Andri and Leeor Peled and Zhe Wang</div>
+            </div>
+            
+            <div class="publication">
+                <span class="publication-year">2019</span>
+                <a href="https://doi.org/10.1145/3423167" class="publication-title">A Neural Network Prefetcher for Arbitrary Memory Access Patterns</a>
+                <span class="publication-venue">ACM Transactions on Architecture and Code Optimization (TACO)</span>
+            </div>
+
+
+            <div class="publication">
+                <span class="publication-year">2015</span>
+                <a href="papers/context_based_prefetching_ISCA15.pdf" class="publication-title">Semantic Locality and Context-based Prefetching Using Reinforcement Learning</a>
+                <span class="publication-venue">ISCA 2015</span>
+                <div class="authors">with Yoav Etsion, Uri Weiser, and Shie Mano</div>
+                <div style="margin-top: 0.5rem;">
+                    <a href="papers/ISCA_2015_Semantic_Locality_and_Context_Based_Prefeching.pdf">Slides</a>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Conference Duty -->
+        <section class="section">
+            <h3>Conference Activities</h3>
+            <ul>
+                <li><a href="https://software.intel.com/en-us/event/compilerconf/2015/sessions">CATC</a> - Compilers, Architecture and Tools Conference (Co-organizer and Program Committee)</li>
+                <li><a href="http://www.microarch.org/micro56/">Micro 56</a> - 56th IEEE/ACM International Symposium on Microarchitecture 2023 (Toronto) - Program committee</li>
+                <li><a href="http://www.microarch.org/micro57/">Micro 57</a> - 56th IEEE/ACM International Symposium on Microarchitecture 2024 (Austin) - Program committee</li>
+                <li><a href="http://www.microarch.org/micro58/">Micro 58</a> - 56th IEEE/ACM International Symposium on Microarchitecture 2025 (Seoul) - Program committee</li>
+                <li><a href="https://www.iscaconf.org/isca2016">ISCA 2016</a> - International Symposium on Computer Architecture (Seoul) - ERC</li>
+                <li><a href="https://www.iscaconf.org/isca2022">ISCA 49</a> - 49th IEEE/ACM International Symposium on Computer Architecture (NY) - ERC</li>
+                <li><a href="https://www.iscaconf.org/isca2026/">ISCA 2026</a> - 53rd IEEE/ACM International Symposium on Computer Architecture (Raleigh) - ERC</li>                            		<li><a href="https://2026.hpca-conf.org/">HPCA 2026</a> - 32st IEEE International Symposium on High-Performance Computer Architecture (Sydney) - Program committee</li>            
+		<li><a href="https://2027.hpca-conf.org/">HPCA 2027</a> - 33st IEEE International Symposium on High-Performance Computer Architecture (Salt Lake City) - Program committee</li>            
+		<li><a href="https://sites.google.com/view/dpc4-2026">DPC 4</a> - 4th Data Prefetching Championship (in conjunction with HPCA 2026) - Program committee, <a href="https://sites.google.com/view/dpc4-2026/program/invited-talks">Keynote</a>, <a href="https://www.youtube.com/watch?v=kGof6AnzICs">Full recording</a></li>            
+</ul>
+
+
+        </section>
+
+        <!-- Employment -->
+        <section class="section">
+            <h3>Employment</h3>
+            <ul>
+                <li><strong>2005 - 2020:</strong> Performance Architect at Intel, focusing on CPU microarchitecture design and optimization</li>
+            </ul>
+            <img src="images/image006.jpg" alt="Intel Logo" style="max-width: 200px; margin-top: 1rem;">
+            <ul>
+                <li><strong>2020 - 2023:</strong>Senior Architect at Huawei (Toga Networks - Israel research center), head of Advanced Technologies Group (ATG)</li>
+                <li><strong>2023 - 2026:</strong>Head of CPU Architecture Research at Huawei (Skyline CPU)</li>
+            </ul>
+            <img src="images/Huawei-Logo-500x281.png" alt="Intel Logo" style="max-width: 200px; margin-top: 1rem;">
+        </section>
+        
+        <!-- Education & Coursework -->
+        <section class="section">
+            <h3>Graduate Coursework & Seminars</h3>
+            <ul>
+                <li><a href="http://webee.technion.ac.il/courses/048878/">048878</a> - VLSI Architecture
+                    (<a href="_files/mips/repo">Asynchronous MIPS Design Project</a>)</li>
+                <li><a href="http://webee.technion.ac.il/courses/048878/048879.htm">048879</a> - Seminar in VLSI Architecture 
+                    (<a href="_files/The Problem with Threads.pptx">The Problem with Threads</a>)</li>
+                <li><a href="http://webee.technion.ac.il/courses/048750/">048750</a> - Advanced Topics in Computer Architecture (Cache Memory architecture for CMP systems)</li>
+                <li><a href="http://webee.technion.ac.il/~idish/048961/">048961</a> - Topics in Reliable Distributed Systems 
+                    (<a href="_files/Maximum benefit from a minimal HTM.pdf">Maximum Benefit from a Minimal HTM</a>)</li>
+                <li><a href="http://webee.technion.ac.il/courses/046853/">046853</a> - VLSI Architecture Design</li>
+                <li><a href="http://webcourse.cs.technion.ac.il/236374/">236374</a> - Probabilistic Methods and Algorithms</li>
+                <li><a href="http://moodle.technion.ac.il/course/view.php?id=2499">049011</a> - Advanced Topics: From Virtualization to Cloud
+                    (<a href="_files/DeDuplication.pptx">Deduplication in Cloud Systems</a>)</li>
+                <li><a href="http://cs.technion.ac.il/~yetsion/048750.html">048750</a> - Advanced Topics in Computer Architecture 
+                    (<a href="_files/naiad.pptx">Naiad Distributed Stream Processing</a>)</li>
+                <li>049011 - Advanced Topics: Real-time Systems 
+                    (<a href="_files/TM_for_RT.pptx">Transactional Memory for Real-Time Systems</a>)</li>
+            </ul>
+        </section>
+
+        <!-- Research Links & Resources -->
+        <section class="section">
+            <h3>Research Links & Resources</h3>
+            <ul>
+                <li><a href="reading">Reading Materials</a></li>
+                <li><a href="files">Published Files</a></li>
+            </ul>
+        </section>
+
+    </main>
+
+</body>
+
+</html>
