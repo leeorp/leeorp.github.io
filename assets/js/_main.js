@@ -50,6 +50,8 @@ function toggleTheme() {
   redrawPlotly();
 }
 
+document.documentElement.setAttribute('data-theme', 'default_dark');
+
 // Defer the loading of Mermaid to only if there is a field on the page to be rendered
 let mermaidElements = document.querySelectorAll("pre>code.language-mermaid");
 if (mermaidElements.length > 0) {
