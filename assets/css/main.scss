@@ -42,8 +42,8 @@
 .bg-image {
   position: fixed;
   inset: 0;
-  background: url('/images/cpu1.bmp') center/cover no-repeat fixed;
-  filter: contrast(30%) brightness(0.33); /* optional tweaks */
+  background: var(--site-bg) center/cover no-repeat fixed;
+  filter: var(--site-bg-filter, contrast(30%) brightness(0.33));
   z-index: 0;
   pointer-events: none;
 }
