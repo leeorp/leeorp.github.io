@@ -42,7 +42,7 @@
   position: fixed;
   inset: 0;
   background: center/cover no-repeat fixed; /* keeps other background properties */
-  background-image: var(--site-bg-image, '/images/cpu1.bmp'); /* safe: var contains path */
+  background-image: url(var(--site-bg-image, '/images/cpu1.bmp')); /* safe: var contains path */
   filter: var(--site-bg-filter, contrast(30%) brightness(0.33));
   z-index: 0;
   pointer-events: none;
