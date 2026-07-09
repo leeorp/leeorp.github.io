@@ -11,7 +11,6 @@ Leeor Peled has over 20 years of experience developing CPU core architectures, s
 He then moved to Huawei as a senior architect and research manager working on CPU cores for Mobile phones, server CPUs and many other domains. Leeor received his PhD at the Technion under Prof. [Uri Weiser](http://webee.technion.ac.il/people/weiser) & Prof. [Yoav Etsion](http://www.cs.technion.ac.il/~yetsion/).
 
 Currently he is leading Huawei CPU Architecture Research with a team that spans across Israel, Zurich, Cambridge, Edinburgh, and China. His main focus is on Predictors, Parallelism, Caches, Software/Hardware codesign, System/OS, and dynamic optimization, but he may be willing to talk about other things if you're not careful. He also serves as an associate editor of IEEE Computer Architecture Letters (CAL) and PC memeber on recent ISCA, Micro and HPCA conferences.
-Curre
 
 Fun fact: likes windsurfing :)
 
