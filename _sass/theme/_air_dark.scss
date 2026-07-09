@@ -36,6 +36,8 @@ $sidebar-screen-min-width   : 1024px;
 
 /* Dark theme for the site */
 html[data-theme="dark"] {
+    --site-bg-image: '/images/cpu1.bmp';
+    --site-bg-filter: contrast(30%) brightness(0.33);
     --global-base-color                 : #{$primary-color};
     --global-bg-color                   : #{$background};
     --global-footer-bg-color            : #{$footer};
