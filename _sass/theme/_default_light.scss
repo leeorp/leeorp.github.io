@@ -26,7 +26,7 @@ $navicon-height             : 4px;
 $sidebar-link-max-width     : 250px;
 $sidebar-screen-min-width   : 1024px;
 
-html[data-theme="default_light"] {
+body[data-theme="default_light"] {
   --site-bg-image: '/images/cpu5.jpg';  
   --site-bg-filter: contrast(60%) brightness(0.66);
 }
