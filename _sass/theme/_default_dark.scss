@@ -34,7 +34,7 @@ $navicon-height             : 4px;
 $sidebar-link-max-width     : 250px;
 $sidebar-screen-min-width   : 1024px;
 
-body[data-theme="default_light"] {
+html[data-theme="default_dark"] {
     --site-bg-image: '/images/cpu1.bmp';
   --site-bg-filter: contrast(30%) brightness(0.33);
 }
