@@ -5,7 +5,6 @@ html {
   /* sticky footer fix */
   position: relative;
   min-height: 100%;
-  <body data-theme="{{ site.site_theme | default: 'default_dark' }}">
   scroll-behavior: smooth;
 }
 
