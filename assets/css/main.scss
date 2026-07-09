@@ -42,12 +42,12 @@
   position: fixed;
   inset: 0;
   background: center/cover no-repeat fixed; /* keeps other background properties */
-  background-image: url(var(--site-bg-image, '/images/cpu1.bmp')); /* safe: var contains path */
+  background-image: var(--site-bg-image, '/images/cpu1.bmp'); /* safe: var contains path */
   filter: var(--site-bg-filter, contrast(30%) brightness(0.33));
   z-index: 0;
   pointer-events: none;
 }
-.bg-image { background-image: url('/images/cpu1.bmp') !important; filter: var(--site-bg-filter) !important; }
+/*.bg-image { background-image: url('/images/cpu1.bmp') !important; filter: var(--site-bg-filter) !important; }*/
 
 /* Ensure content sits above it */
 .site, .main, .content {
