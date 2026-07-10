@@ -36,11 +36,7 @@ Publications (see extended version through tabs)
 {% assign pubs = site.data.publications | sort: 'date' %}
 {% for p in pubs %}
 - {% if p.pub_date %}
-  {{ p.pub_date | pub_date: "%Y" }}
-  {% else %}
-  n.d.
-  {% endif %} — 
-  {% if p.venue %}
+  {{ p.pub_date | pub_date: "%Y" }} {% else %} n.d. {% endif %}  {% if p.venue %}
   <span class="venue-badge" data-venue="{{ p.venue | slugify }}">{{ p.venue }}</span>
   {% endif %}{% if p.title %} {{ p.title }}{% endif %}
 {% endfor %}
