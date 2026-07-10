@@ -36,11 +36,12 @@ function setTheme(theme) {
     $("html").attr("data-theme", "dark");
     $("#theme-icon").removeClass("fa-sun").addClass("fa-moon");
      document.querySelector('.bg-image').style.backgroundImage = "url(/images/cpu1.bmp)";
-     document.getElementById('main').style.backgroundImage="url(/images/cpu1.bmp)";
+     document.getElementById('body').style.backgroundImage="url(/images/cpu1.bmp)";
   } else if (use_theme === "light") {
     $("html").removeAttr("data-theme");
     $("#theme-icon").removeClass("fa-moon").addClass("fa-sun");
      document.querySelector('.bg-image').style.backgroundImage = "url(/images/cpu5.jpg)";
+     document.getElementById('body').style.backgroundImage="url(/images/cpu5.jpg)";     
   }
 }
 
