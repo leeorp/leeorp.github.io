@@ -36,6 +36,7 @@ function setTheme(theme) {
     $("html").attr("data-theme", "dark");
     $("#theme-icon").removeClass("fa-sun").addClass("fa-moon");
      document.querySelector('.bg-image').style.backgroundImage = "url(/images/cpu1.bmp)";
+     document.getElementById('main').style.backgroundImage="url(/images/cpu1.bmp)";
   } else if (use_theme === "light") {
     $("html").removeAttr("data-theme");
     $("#theme-icon").removeClass("fa-moon").addClass("fa-sun");
@@ -54,7 +55,7 @@ function toggleTheme() {
 
 document.documentElement.setAttribute('data-theme', 'dark');
 document.querySelector('.bg-image').style.backgroundImage = "url(/images/cpu1.bmp)";
-//document.getElementById('main').style.backgroundImage= "url(/images/cpu1.bmp)";
+document.getElementById('main').style.backgroundImage="url(/images/cpu1.bmp)";
    
 // Defer the loading of Mermaid to only if there is a field on the page to be rendered
 let mermaidElements = document.querySelectorAll("pre>code.language-mermaid");
