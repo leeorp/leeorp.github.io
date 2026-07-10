@@ -7,11 +7,7 @@
  * Note that the files are processed in the order they are imported, so they are partly
    sorted by the dependencies. Also, the first two lines of the file are required by Jekyll.
  */
-/*:root {
-  // canonical image vars rendered by Jekyll/Liquid 
-  --img-cpu1: url('{{ "/images/cpu1.bmp" | relative_url }}');
-  --img-cpu5: url('{{ "/images/cpu5.jpg" | relative_url }}');
-  }*/
+
 :root {
   --img-cpu1: url('/images/cpu1.bmp');
   --img-cpu5: url('/images/cpu5.jpg');
