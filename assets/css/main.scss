@@ -7,18 +7,18 @@
  * Note that the files are processed in the order they are imported, so they are partly
    sorted by the dependencies. Also, the first two lines of the file are required by Jekyll.
  */
-
+/*
 :root {
   --img-cpu1: /images/cpu1.bmp;
   --img-cpu5: /images/cpu5.jpg;
-}
+}*/
 
 @import
     "vendor/breakpoint/breakpoint",
 
     "themes",
-    //"theme/{{ site.site_theme | default: 'default' | append: '_dark' }}",
-    "theme/default_dark";
+    "theme/{{ site.site_theme | default: 'default' | append: '_dark' }}",
+    //"theme/default_dark";
 
     "include/mixins",
     "vendor/susy/susy",
@@ -44,12 +44,14 @@
     "layout/json_cv"
 ;
 
+
 .bg-image {
   position: fixed;
   inset: 0;
   background: center/cover no-repeat fixed;
   /* theme partials will now set --site-bg-image to var(--img-*) */
-  background-image: var(--site-bg-image, var(--img-cpu1));
+  //background-image: var(--site-bg-image, var(--img-cpu1));
+  background-image: var(--site-bg-image, '/images/cpu1.bmp'); /* safe: var contains path */
   filter: var(--site-bg-filter, contrast(30%) brightness(0.33));
   z-index: 0;
   pointer-events: none;
