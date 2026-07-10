@@ -17,8 +17,8 @@
     "vendor/breakpoint/breakpoint",
 
     "themes",
-    "theme/{{ site.site_theme | default: 'default' | append: '_dark' }}",
-    //"theme/default_dark";
+    //"theme/{{ site.site_theme | default: 'default' | append: '_dark' }}",
+    "theme/air_dark";
 
     "include/mixins",
     "vendor/susy/susy",
