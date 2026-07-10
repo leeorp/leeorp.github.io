@@ -36,7 +36,7 @@ $sidebar-screen-min-width   : 1024px;
 
 /* Dark theme background */
 html[data-theme*="dark"], body[data-theme*="dark"] {
-  --site-bg-image: url('{{ "/images/cpu1.bmp" | relative_url }}');
+  --site-bg-image: var(--img-cpu1);
   --site-bg-filter: contrast(30%) brightness(0.33);
 }
 
