@@ -48,12 +48,13 @@
   position: fixed;
   inset: 0;
   background: center/cover no-repeat fixed;
-  /* variable now contains a full url(...) value, so use it directly; fallback also uses url(...) */
-  background-image: var(--site-bg-image, url('{{ "/images/cpu1.bmp" | relative_url }}'));
+  /* theme partials will now set --site-bg-image to var(--img-*) */
+  background-image: var(--site-bg-image, var(--img-cpu1));
   filter: var(--site-bg-filter, contrast(30%) brightness(0.33));
   z-index: 0;
   pointer-events: none;
 }
+
 /* Ensure content sits above it */
 .site, .main, .content {
   position: relative;
