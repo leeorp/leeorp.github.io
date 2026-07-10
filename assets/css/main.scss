@@ -51,7 +51,7 @@
   background: center/cover no-repeat fixed;
   /* theme partials will now set --site-bg-image to var(--img-*) */
   //background-image: var(--site-bg-image, var(--img-cpu1));
-  background-image: var(--site-bg-image, '/images/cpu1.bmp'); /* safe: var contains path */
+  background-image: url(image/cpu1.bmp); //var(--site-bg-image, '/images/cpu1.bmp'); /* safe: var contains path */
   filter: var(--site-bg-filter, contrast(30%) brightness(0.33));
   z-index: 0;
   pointer-events: none;
