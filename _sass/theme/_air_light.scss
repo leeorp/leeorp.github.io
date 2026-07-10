@@ -36,7 +36,7 @@ $sidebar-screen-min-width   : 1024px;
 
 /* Light theme background (use relative_url so baseurl is handled by Jekyll) */
 html[data-theme*="light"], body[data-theme*="light"] {
-  --site-bg-image: var(--img-cpu5);
+  --site-bg-image: /image/cpu5.jpg;
   --site-bg-filter: contrast(30%) brightness(0.8);
 }
 
