@@ -9,8 +9,8 @@
  */
 
 :root {
-  --img-cpu1: url('/images/cpu1.bmp');
-  --img-cpu5: url('/images/cpu5.jpg');
+  --img-cpu1: /images/cpu1.bmp;
+  --img-cpu5: /images/cpu5.jpg;
 }
 
 @import
