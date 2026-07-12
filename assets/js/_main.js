@@ -15,6 +15,7 @@ const browserPref = window.matchMedia && window.matchMedia('(prefers-color-schem
 // Determine the computed theme, which can be "dark" or "light".
 function determineComputedTheme() {
   // Determine the expected state of the theme toggle, which can be "dark", "light", or default "system"
+  return "dark";
   let themeSetting = localStorage.getItem("theme");
   themeSetting = (themeSetting != "dark" && themeSetting != "light" && themeSetting != "system") ? "system" : themeSetting;
 
@@ -27,6 +28,7 @@ function determineComputedTheme() {
 
 // Set the theme on page load or when explicitly called
 function setTheme(theme) {
+   return;
   const use_theme = theme ||
     localStorage.getItem("theme") ||
     $("html").attr("data-theme") ||
@@ -35,13 +37,13 @@ function setTheme(theme) {
   if (use_theme === "dark") {
     $("html").attr("data-theme", "dark");
     $("#theme-icon").removeClass("fa-sun").addClass("fa-moon");
-     document.querySelector('.bg-image').style.backgroundImage = "url(/images/cpu1.bmp)";
-     document.getElementById('body').style.backgroundImage="url(/images/cpu1.bmp)";
+  //   document.querySelector('.bg-image').style.backgroundImage = "url(/images/cpu1.bmp)";
+  //   document.getElementById('body').style.backgroundImage="url(/images/cpu1.bmp)";
   } else if (use_theme === "light") {
     $("html").removeAttr("data-theme");
     $("#theme-icon").removeClass("fa-moon").addClass("fa-sun");
-     document.querySelector('.bg-image').style.backgroundImage = "url(/images/cpu5.jpg)";
-     document.getElementById('body').style.backgroundImage="url(/images/cpu5.jpg)";     
+   //  document.querySelector('.bg-image').style.backgroundImage = "url(/images/cpu5.jpg)";
+   //  document.getElementById('body').style.backgroundImage="url(/images/cpu5.jpg)";     
   }
 }
 
