@@ -49,7 +49,7 @@ function setTheme(theme) {
 function toggleTheme() {
   const current_theme = $("html").attr("data-theme");
   const new_theme = current_theme === "dark" ? "light" : "dark";
-  if (new_theme == "dark") {
+  if (new_theme === "dark") {
      document.querySelector('.bg-image').style.backgroundImage = "url(/images/cpu1.bmp)";
      document.getElementById('body').style.backgroundImage="url(/images/cpu1.bmp)";
   } else {
@@ -141,7 +141,7 @@ function redrawPlotly() {
 
     // Set the theme for the plot and render it
     const theme = (determineComputedTheme() === "dark") ? plotlyDarkLayout : plotlyLightLayout;
-    if (new_theme == "dark") {
+    if (new_theme === "dark") {
          document.querySelector('.bg-image').style.backgroundImage = "url(/images/cpu1.bmp)";
          document.getElementById('body').style.backgroundImage="url(/images/cpu1.bmp)";
     } else {
