@@ -143,6 +143,13 @@ function redrawPlotly() {
 
     // Set the theme for the plot and render it
     const theme = (determineComputedTheme() === "dark") ? plotlyDarkLayout : plotlyLightLayout;
+    if (new_theme == "dark") {
+         document.querySelector('.bg-image').style.backgroundImage = "url(/images/cpu1.bmp)";
+         document.getElementById('body').style.backgroundImage="url(/images/cpu1.bmp)";
+    } else {
+         document.querySelector('.bg-image').style.backgroundImage = "url(/images/cpu5.jpg)";
+         document.getElementById('body').style.backgroundImage="url(/images/cpu1.bmp)";
+    }
     if (jsonData.layout) {
       jsonData.layout.template = (jsonData.layout.template) ? { ...theme, ...jsonData.layout.template } : theme;
     } else {
