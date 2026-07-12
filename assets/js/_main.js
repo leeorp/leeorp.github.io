@@ -50,8 +50,16 @@ function setTheme(theme) {
 // Toggle the theme manually
 function toggleTheme() {
   const current_theme = $("html").attr("data-theme");
-  const new_theme = "dark";// current_theme === "dark" ? "light" : "dark";
-  localStorage.setItem("theme", new_theme);
+  const new_theme = current_theme === "dark" ? "light" : "dark";
+  if (new_theme == "dark") {
+     document.querySelector('.bg-image').style.backgroundImage = "url(/images/cpu1.bmp)";
+     document.getElementById('body').style.backgroundImage="url(/images/cpu1.bmp)";
+  } else {
+     document.querySelector('.bg-image').style.backgroundImage = "url(/images/cpu5.jpg)";
+     document.getElementById('body').style.backgroundImage="url(/images/cpu1.bmp)";
+  }
+
+   localStorage.setItem("theme", new_theme);
   setTheme(new_theme);
   redrawPlotly();
 }
