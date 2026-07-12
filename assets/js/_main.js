@@ -7,7 +7,7 @@
 
 // Constants for CDNs
 //const PLOTLY_URL = "https://cdn.jsdelivr.net/npm/plotly.js@3.6.0/dist/plotly.min.js";
-const MERMAID_URL = "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+//const MERMAID_URL = "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
 
 // Detect OS/browser preference
 const browserPref = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
