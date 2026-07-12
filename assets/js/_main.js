@@ -68,7 +68,7 @@ document.documentElement.setAttribute('data-theme', 'dark');
    
 // Defer the loading of Mermaid to only if there is a field on the page to be rendered
 let mermaidElements = document.querySelectorAll("pre>code.language-mermaid");
-if (mermaidElements.length > 0) {
+if (1){ //mermaidElements.length > 0) {
   document.addEventListener("readystatechange", function() {
     // Append the Mermaid module to the DOM
     const moduleScript = document.createElement('script');
