@@ -50,7 +50,7 @@ function setTheme(theme) {
 // Toggle the theme manually
 function toggleTheme() {
   const current_theme = $("html").attr("data-theme");
-  const new_theme = current_theme === "dark" ? "light" : "dark";
+  const new_theme = "dark";// current_theme === "dark" ? "light" : "dark";
   localStorage.setItem("theme", new_theme);
   setTheme(new_theme);
   redrawPlotly();
