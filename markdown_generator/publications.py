@@ -65,9 +65,20 @@ def create_md(lines: list, layout: list):
         md += f"\nRecommended citation: {item[layout.index('citation')]}"
         
         # Write the file
-        md_filename = os.path.join("../_publications/", os.path.basename(md_filename))
-        with open(md_filename, 'w') as f:
+        #md_filename = os.path.join("../_publications/", os.path.basename(md_filename))
+        #with open(md_filename, 'w') as f:
+        #    f.write(md)
+
+        from pathlib import Path
+        repo_root = Path(__file__).resolve().parent.parent
+        output_dir = repo_root / "_publications"
+        output_dir.mkdir(exist_ok=True)
+
+        md_filename = output_dir / os.path.basename(md_filename)
+        with open(md_filename, 'w', encoding='utf-8') as f:
             f.write(md)
+
+
 
 def html_escape(text):
     """Produce entities within text."""
