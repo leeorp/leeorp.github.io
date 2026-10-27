@@ -29,6 +29,18 @@ jobs:
       - name: Generate markdown files from CSV
         run: python3 markdown_generator/publications.py _data/publications.csv
 
+      - name: Commit generated publication files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git status --porcelain | grep -q '.'; then
+            git add _publications
+            git commit -m "Generate publication pages"
+            git push
+          else
+            echo "No publication changes to commit"
+          fi
+
   build:
     needs: generate
     runs-on: ubuntu-latest
