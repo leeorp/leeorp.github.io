@@ -38,6 +38,8 @@ def create_md(lines: list, layout: list):
     output_dir.mkdir(exist_ok=True)
 
     for item in lines:
+        if not item or not any(cell for cell in item):
+            continue
         pub_date = str(item[layout.index('pub_date')]).strip()
         title = str(item[layout.index('title')]).strip()
         url_slug = str(item[layout.index('url_slug')]).strip()
