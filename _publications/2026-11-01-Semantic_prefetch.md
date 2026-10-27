@@ -2,7 +2,7 @@
 title: "Exploiting Program Semantics for Hardware Prefetching"
 collection: publications
 category: papers
-permalink: /publication/2026-11-01-Semantic prefetch
+permalink: /publication/2026-11-01-Semantic_prefetch
 excerpt: 'Slice based semantic prefethcing with extrapolation and value based approximate trigger'
 date: 2026-11-01
 venue: 'Micro 2026'
