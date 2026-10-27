@@ -14,7 +14,8 @@
 import csv
 import os
 import sys
-
+import re
+from pathlib import Path
 # Flag to indicate an error occurred
 EXIT_ERROR = 0
 
@@ -35,48 +36,47 @@ HTML_ESCAPE_TABLE = {
 # concatenate a big string (```md```) that contains the markdown for each type. It does the YAML metadata first, then
 # does the description for the individual page.
 def create_md(lines: list, layout: list):
+    repo_root = Path(__file__).resolve().parent.parent
+    output_dir = repo_root / "_publications"
+    output_dir.mkdir(exist_ok=True)
+
     for item in lines:
-        # Parse the filename information
-        md_filename = f"{item[layout.index('pub_date')]}-{item[layout.index('url_slug')]}.md"
-        html_filename = str(item[layout.index('pub_date')]) + "-" + item[layout.index('url_slug')]
-        
-        # Parse the YAML variables
-        md = f"---\ntitle: \"{item[layout.index('title')]}\"\n"
+        pub_date = item[layout.index('pub_date')].strip()
+        title = item[layout.index('title')].strip()
+        url_slug = item[layout.index('url_slug')].strip()
+
+        if not url_slug:
+            url_slug = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
+
+        md_filename = f"{pub_date}-{url_slug}.md"
+        html_filename = f"{pub_date}-{url_slug}"
+
+        md = f"---\ntitle: \"{title}\"\n"
         md += "collection: publications"
         if len(layout) == len(HEADER_UPDATED):
-            md += f"\ncategory: {item[layout.index('category')]}"
+            md += f"\ncategory: {item[layout.index('category')].strip()}"
         else:
             md += "\ncategory: manuscripts"
         md += f"\npermalink: /publication/{html_filename}"
-        if len(str(item[layout.index('excerpt')])) > 5:
-            md += f"\nexcerpt: '{html_escape(item[layout.index('excerpt')])}'"
-        md += f"\ndate: {item[layout.index('pub_date')]}"
-        md += f"\nvenue: '{html_escape(item[layout.index('venue')])}'"
-        if len(str(item[layout.index('paper_url')])) > 5:
-            md += f"\npaperurl: '{item[layout.index('paper_url')]}'"
-        md += f"\ncitation: '{html_escape(item[layout.index('citation')])}'"
+        if len(str(item[layout.index('excerpt')]).strip()) > 5:
+            md += f"\nexcerpt: '{html_escape(item[layout.index('excerpt')].strip())}'"
+        md += f"\ndate: {pub_date}"
+        md += f"\nvenue: '{html_escape(item[layout.index('venue')].strip())}'"
+        if len(str(item[layout.index('paper_url')]).strip()) > 5:
+            md += f"\npaperurl: '{item[layout.index('paper_url')].strip()}'"
+        md += f"\ncitation: '{html_escape(item[layout.index('citation')].strip())}'"
         md += "\n---"
-        
-        # Markdown description for individual page
-        if len(str(item[layout.index('paper_url')])) > 5:
-            md += f"\n<a href='{item[layout.index('paper_url')]}'>Download paper here</a>\n"
-        if len(str(item[layout.index('excerpt')])) > 5:
-            md += f"\n{html_escape(item[layout.index('excerpt')])}\n"
-        md += f"\nRecommended citation: {item[layout.index('citation')]}"
-        
-        # Write the file
-        #md_filename = os.path.join("../_publications/", os.path.basename(md_filename))
-        #with open(md_filename, 'w') as f:
-        #    f.write(md)
 
-        from pathlib import Path
-        repo_root = Path(__file__).resolve().parent.parent
-        output_dir = repo_root / "_publications"
-        output_dir.mkdir(exist_ok=True)
+        if len(str(item[layout.index('paper_url')]).strip()) > 5:
+            md += f"\n<a href='{item[layout.index('paper_url')].strip()}'>Download paper here</a>\n"
+        if len(str(item[layout.index('excerpt')]).strip()) > 5:
+            md += f"\n{html_escape(item[layout.index('excerpt')].strip())}\n"
+        md += f"\nRecommended citation: {item[layout.index('citation')].strip()}"
 
-        md_filename = output_dir / os.path.basename(md_filename)
-        with open(md_filename, 'w', encoding='utf-8') as f:
+        output_path = output_dir / os.path.basename(md_filename)
+        with open(output_path, 'w', encoding='utf-8') as f:
             f.write(md)
+            
 
 
 
@@ -88,19 +88,19 @@ def read(filename: str) -> tuple[list, list]:
     '''Read the contents of the file, check the header and return the parsed line along with the file type.'''
 
     # Read the contents of the file
+
+def read(filename: str) -> tuple[list, list]:
     lines = []
-    with open(filename, 'r') as file:
+    with open(filename, 'r', encoding='utf-8') as file:
         delimiter = ',' if filename.endswith('.csv') else '\t'
         reader = csv.reader(file, delimiter=delimiter)
         for row in reader:
-            lines.append(row)
+            lines.append([ (cell or "").strip() for cell in row ])
 
-    # Verify the file format makes sense
     if len(lines) <= 1:
         print(f'Not enough lines in the file to process, found {len(lines)}', file=sys.stderr)
         sys.exit(EXIT_ERROR)
 
-    # Verify the header, remove it once checked
     layout = HEADER_UPDATED
     if HEADER_LEGACY == lines[0]:
         layout = HEADER_LEGACY
@@ -108,10 +108,11 @@ def read(filename: str) -> tuple[list, list]:
         print(lines[0])
         print('The header of the file does not match the expected format', file=sys.stderr)
         sys.exit(EXIT_ERROR)
+
     lines = lines[1:]
-    
-    # Return the lines and format
     return lines, layout
+
+
 
 if __name__ == '__main__':
     # Make sure a filename was given
