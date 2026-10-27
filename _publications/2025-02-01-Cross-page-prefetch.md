@@ -9,7 +9,6 @@ venue: 'HPCA 2025'
 paperurl: 'https://ieeexplore.ieee.org/abstract/document/10946723/'
 citation: ''
 ---
-
 <a href='https://ieeexplore.ieee.org/abstract/document/10946723/'>Download paper here</a>
 
 Cross page prefetch dynamic throttling

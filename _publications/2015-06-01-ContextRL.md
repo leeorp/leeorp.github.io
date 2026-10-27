@@ -6,12 +6,11 @@ permalink: /publication/2015-06-01-ContextRL
 excerpt: 'contextual-Bandits semantic RL prefetcher correlating program context with addresses/deltas'
 date: 2015-06-01
 venue: 'ISCA 2015'
-paperurl: 'https://dl.acm.org/doi/10.1145/2749469.2750381'
-citation: 'ContextRL'
+paperurl: '../files/Context-ISCA2015.pdf'
+citation: ''
 ---
-
-<a href='https://dl.acm.org/doi/10.1145/2749469.2750381'>Download paper here</a>
+<a href='../files/Context-ISCA2015.pdf'>Download paper here</a>
 
 contextual-Bandits semantic RL prefetcher correlating program context with addresses/deltas
 
-Recommended citation: ContextRL
+Recommended citation: 
