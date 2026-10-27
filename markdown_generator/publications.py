@@ -1,49 +1,51 @@
 # Publications markdown generator for AcademicPages
-# 
-# Takes a TSV / CSV of publications with metadata and converts them for use with [academicpages.github.io](academicpages.github.io). 
+#
+# Takes a TSV / CSV of publications with metadata and converts them for use with [academicpages.github.io](academicpages.github.io).
 # Can be called via the command prompt by using `python3 publications.py [filename]`.
 
 # Data format
-# 
+#
 # The file needs to have the following columns as a header at the top:
 # pub_date, title, venue, excerpt, citation, url_slug, paper_url, slides_url
-# - `excerpt`, `paper_url`, and slides_url can be blank, but the others must have values. 
+# - `excerpt`, `paper_url`, and slides_url can be blank, but the others must have values.
 # - `pub_date` must be formatted as YYYY-MM-DD.
-# - `url_slug` will be the descriptive part of the .md file and the permalink URL for the page about the paper. 
-#    The .md file will be `YYYY-MM-DD-[url_slug].md` and the permalink will be `https://[yourdomain]/publications/YYYY-MM-DD-[url_slug]`
+# - `url_slug` will be the descriptive part of the .md file and the permalink URL for the paper.
+#    The .md file will be `YYYY-MM-DD-[url_slug].md`
 import csv
 import os
-import sys
 import re
+import sys
 from pathlib import Path
-# Flag to indicate an error occurred
+
 EXIT_ERROR = 0
 
-# The expected layout of the CSV / TSV file
-HEADER_LEGACY  = ['pub_date', 'title', 'venue', 'excerpt', 'citation', 'url_slug', 'paper_url', 'slides_url']
+HEADER_LEGACY = ['pub_date', 'title', 'venue', 'excerpt', 'citation', 'url_slug', 'paper_url', 'slides_url']
 HEADER_UPDATED = ['pub_date', 'title', 'venue', 'excerpt', 'citation', 'url_slug', 'paper_url', 'slides_url', 'category']
 
-# YAML is very picky about how it takes a valid string, so we are replacing single and double quotes (and ampersands)
-# with their HTML encoded equivalents. This makes them look not so readable in raw format, but they are parsed and
-# rendered nicely.
 HTML_ESCAPE_TABLE = {
     "&": "&amp;",
     '"': "&quot;",
     "'": "&apos;"
-    }
+}
 
-# This is where the heavy lifting is done. This loops through all the rows in the TSV dataframe, then starts to
-# concatenate a big string (```md```) that contains the markdown for each type. It does the YAML metadata first, then
-# does the description for the individual page.
+def html_escape(text):
+    """Produce entities within text."""
+    return "".join(HTML_ESCAPE_TABLE.get(c, c) for c in str(text))
+
 def create_md(lines: list, layout: list):
     repo_root = Path(__file__).resolve().parent.parent
     output_dir = repo_root / "_publications"
     output_dir.mkdir(exist_ok=True)
 
     for item in lines:
-        pub_date = item[layout.index('pub_date')].strip()
-        title = item[layout.index('title')].strip()
-        url_slug = item[layout.index('url_slug')].strip()
+        pub_date = str(item[layout.index('pub_date')]).strip()
+        title = str(item[layout.index('title')]).strip()
+        url_slug = str(item[layout.index('url_slug')]).strip()
+        venue = str(item[layout.index('venue')]).strip()
+        excerpt = str(item[layout.index('excerpt')]).strip()
+        citation = str(item[layout.index('citation')]).strip()
+        paper_url = str(item[layout.index('paper_url')]).strip()
+        category = str(item[layout.index('category')]).strip() if len(layout) == len(HEADER_UPDATED) else "manuscripts"
 
         if not url_slug:
             url_slug = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
@@ -53,41 +55,26 @@ def create_md(lines: list, layout: list):
 
         md = f"---\ntitle: \"{title}\"\n"
         md += "collection: publications"
-        if len(layout) == len(HEADER_UPDATED):
-            md += f"\ncategory: {item[layout.index('category')].strip()}"
-        else:
-            md += "\ncategory: manuscripts"
+        md += f"\ncategory: {category}"
         md += f"\npermalink: /publication/{html_filename}"
-        if len(str(item[layout.index('excerpt')]).strip()) > 5:
-            md += f"\nexcerpt: '{html_escape(item[layout.index('excerpt')].strip())}'"
+        if len(excerpt) > 5:
+            md += f"\nexcerpt: '{html_escape(excerpt)}'"
         md += f"\ndate: {pub_date}"
-        md += f"\nvenue: '{html_escape(item[layout.index('venue')].strip())}'"
-        if len(str(item[layout.index('paper_url')]).strip()) > 5:
-            md += f"\npaperurl: '{item[layout.index('paper_url')].strip()}'"
-        md += f"\ncitation: '{html_escape(item[layout.index('citation')].strip())}'"
+        md += f"\nvenue: '{html_escape(venue)}'"
+        if len(paper_url) > 5:
+            md += f"\npaperurl: '{paper_url}'"
+        md += f"\ncitation: '{html_escape(citation)}'"
         md += "\n---"
 
-        if len(str(item[layout.index('paper_url')]).strip()) > 5:
-            md += f"\n<a href='{item[layout.index('paper_url')].strip()}'>Download paper here</a>\n"
-        if len(str(item[layout.index('excerpt')]).strip()) > 5:
-            md += f"\n{html_escape(item[layout.index('excerpt')].strip())}\n"
-        md += f"\nRecommended citation: {item[layout.index('citation')].strip()}"
+        if len(paper_url) > 5:
+            md += f"\n<a href='{paper_url}'>Download paper here</a>\n"
+        if len(excerpt) > 5:
+            md += f"\n{html_escape(excerpt)}\n"
+        md += f"\nRecommended citation: {citation}"
 
         output_path = output_dir / os.path.basename(md_filename)
         with open(output_path, 'w', encoding='utf-8') as f:
             f.write(md)
-            
-
-
-
-def html_escape(text):
-    """Produce entities within text."""
-    return "".join(HTML_ESCAPE_TABLE.get(c,c) for c in text)
-
-def read(filename: str) -> tuple[list, list]:
-    '''Read the contents of the file, check the header and return the parsed line along with the file type.'''
-
-    # Read the contents of the file
 
 def read(filename: str) -> tuple[list, list]:
     lines = []
@@ -95,7 +82,8 @@ def read(filename: str) -> tuple[list, list]:
         delimiter = ',' if filename.endswith('.csv') else '\t'
         reader = csv.reader(file, delimiter=delimiter)
         for row in reader:
-            lines.append([ (cell or "").strip() for cell in row ])
+            row = [(cell or "").strip() for cell in row]
+            lines.append(row)
 
     if len(lines) <= 1:
         print(f'Not enough lines in the file to process, found {len(lines)}', file=sys.stderr)
@@ -112,20 +100,15 @@ def read(filename: str) -> tuple[list, list]:
     lines = lines[1:]
     return lines, layout
 
-
-
 if __name__ == '__main__':
-    # Make sure a filename was given
     if len(sys.argv) != 2:
         print('Usage: python3 publications.py [filename]', file=sys.stderr)
         sys.exit(EXIT_ERROR)
 
-    # Make sure the filename is TSV or CSV
     filename = sys.argv[1]
     if not (filename.endswith('.csv') or filename.endswith('.tsv')):
         print(f'Expected a TSV or CSV file, got {filename}', file=sys.stderr)
-        sys.exit(EXIT_ERROR)    
+        sys.exit(EXIT_ERROR)
 
-    # Read and process the lines
     lines, layout = read(filename)
     create_md(lines, layout)
