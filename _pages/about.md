@@ -37,14 +37,7 @@ Publications (see extended version through tabs)
 {% for p in pubs %}
 - {% if p.pub_date %}
   {{ p.pub_date | pub_date: "%Y" }} {% else %} n.d. {% endif %}  {% if p.venue %}
-  <span class="venue-badge" data-venue="{{ p.venue | slugify }}">{{ p.venue }}</span>
-  {% endif %}{% if p.title %}
-  {% if p.paper_url %}
-  <a href="{{ p.paper_url }}" target="_blank" rel="noopener noreferrer">{{ p.title }}</a>
-  {% else %}
-  {{ p.title }}
-  {% endif %}
-  {% endif %}
+  <span class="venue-badge" data-venue="{{ p.venue | slugify }}">{{ p.venue }}</span> {% endif %}{% if p.title %} {% if p.paper_url %} <a href="{{ p.paper_url }}" target="_blank" rel="noopener noreferrer">{{ p.title }}</a> {% else %}  {{ p.title }} {% endif %} {% endif %}
 {% endfor %}
 
 ----
