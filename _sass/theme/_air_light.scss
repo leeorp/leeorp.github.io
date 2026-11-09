@@ -34,13 +34,33 @@ $navicon-height             : 4px;
 $sidebar-link-max-width     : 250px;
 $sidebar-screen-min-width   : 1024px;
 
+
 /* Light theme background (use relative_url so baseurl is handled by Jekyll) */
 html[data-theme*="light"], body[data-theme*="light"] {
-  /*--site-bg-image: '/images/cpu5.jpg';*/
-  --site-bg-filter: contrast(20%) brightness(1.8);
+  --site-bg-image: '/images/cpu5.jpg';
+  --site-bg-filter: contrast(15%) brightness(2.8);
 }
 
-/* Light theme for the site */
+/* Default light theme for the site */
+:root {
+    --global-base-color                 : #{$primary-color};
+    --global-bg-color                   : #fff;
+    --global-footer-bg-color            : #f2f3f3;
+    --global-border-color               : #{$dark-gray};
+    --global-dark-border-color          : #cdd1d4;
+    --global-code-background-color      : #fafafa;
+    --global-code-text-color            : #{$black};
+    --global-fig-caption-color          : mix(#fff,  #{$dark-gray}, 25%);
+    --global-link-color                 : #52adc8;
+    --global-link-color-hover           : mix(#000, #2f7f93, 25%);
+    --global-link-color-visited         : mix(#fff, #2f7f93, 25%);  
+    --global-masthead-link-color        : #{$black};
+    --global-masthead-link-color-hover  : mix(#000, #{$gray}, 25%);    
+    --global-text-color                 : #{$black};
+    --global-text-color-light           : #{$dark-gray};
+    --global-thead-color                : #{$dark-gray};
+}
+/* Light theme for the site 
 :root {
     --global-base-color                 : #{$primary-color};
     --global-bg-color                   : #{$background};
@@ -58,4 +78,4 @@ html[data-theme*="light"], body[data-theme*="light"] {
     --global-text-color                 : #{$text};
     --global-text-color-light           : #{$light-primary-color};
     --global-thead-color                : #{$background-lighter};
-}
+}*/
