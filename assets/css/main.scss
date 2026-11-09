@@ -44,7 +44,7 @@
   inset: 0;
   background: url(/images/cpu5.jpg) center/cover no-repeat fixed;
   filter: contrast(15%) brightness(2);
-  z-index: 1;
+  z-index: 0;
   pointer-events: none;
 }
 
@@ -57,5 +57,5 @@ html[data-theme="dark"] .bg-image {
 /* Ensure content sits above it */
 .site, .main, .content {
   position: relative;
-  z-index: 1;
+  z-index: 0;
 }
